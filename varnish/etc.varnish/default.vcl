@@ -6,11 +6,11 @@ import std;
 # For SSL offloading, pass the following header in your proxy server or load balancer: 'X-Forwarded-Proto: https'
 
 backend default {
-    .host = "localhost";
+    .host = "localhost.site1";
     .port = "8080";
     .first_byte_timeout = 600s;
     .probe = {
-        .url = "/pub/health_check.php";
+        .url = "/health_check.php";
         .timeout = 2s;
         .interval = 5s;
         .window = 10;
