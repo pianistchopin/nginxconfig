@@ -1,0 +1,16 @@
+map $http_host $MAGE_RUN_CODE {
+	localhost.site1 base;
+	localhost.site2 website1;
+}
+
+
+server {
+  listen 8080;
+  server_name localhost.site1;
+  set $MAGE_ROOT /var/www/multiplesite/html;
+  set $MAGE_DEBUG_SHOW_ARGS 1;
+  set $MAGE_MODE developer;
+  set $MAGE_RUN_TYPE website;
+  include /var/www/multiplesite/html/nginx.conf.sample;
+}
+

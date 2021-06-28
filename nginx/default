@@ -1,0 +1,15 @@
+upstream fastcgi_backend {
+  server  127.0.0.1:9000;
+  server  unix:/run/php/php7.3-fpm.sock;
+}
+
+map $http_host $MAGE_RUN_CODE {
+    127.0.0.1 base;
+}
+
+server {
+  listen 8080;
+  server_name 127.0.0.1 ;
+  include snippets/phpmyadmin.conf;
+}
+
